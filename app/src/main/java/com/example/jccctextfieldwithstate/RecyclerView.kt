@@ -1,4 +1,4 @@
-package com.example.jccctextfieldwithstate.ui.theme
+package com.example.jccctextfieldwithstate
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -17,7 +17,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.jccctextfieldwithstate.R
 
 @Composable
 fun ListItem(image: Int, title: String, subtitle: String) {
@@ -85,6 +84,6 @@ fun getItemList(): List<Category> {
 
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
-private fun PreviewFunction() {
+private fun RecyclerViewPreviewFunction() {
 
 }

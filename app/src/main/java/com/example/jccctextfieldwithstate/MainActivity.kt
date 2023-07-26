@@ -39,7 +39,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.jccctextfieldwithstate.ui.theme.JCCCTextFieldWithStateTheme
-import com.example.jccctextfieldwithstate.ui.theme.RecyclerView
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,7 +50,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    RecyclerView()
+                    ClicksCounter()
                 }
             }
         }
@@ -195,10 +194,36 @@ fun CircularImageExample() {
     )
 }
 
-@Preview(showBackground = true, widthDp = 300, heightDp = 500)
 @Composable
-fun PreviewFunction() {
+fun ClicksCounter() {
+    var count = remember { mutableStateOf(0) }
+    Column(verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally) {
+        Recomposition(count.value) { count.value++ }
+        MessageCounter(count.value)
+    }
+}
+
+@Composable
+fun Recomposition(count: Int, increment: () -> Unit ) {
+    Column(verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally) {
+        Text(text = "Clicks: $count")
+        Button(onClick = { increment() }) {
+            Text(text = "Click me!")
+        }
+    }
+}
+
+@Composable
+fun MessageCounter(count: Int) {
+    Text(text = "You have clicked $count times")
+}
+
+@Preview(showSystemUi = true)
+@Composable
+fun MainActivityPreviewFunction() {
     JCCCTextFieldWithStateTheme {
-        CircularImageExample()
+        ClicksCounter()
     }
 }
