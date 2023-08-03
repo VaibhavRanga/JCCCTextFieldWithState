@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -20,7 +21,10 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun ListItem(image: Int, title: String, subtitle: String) {
-    Card(modifier = Modifier.padding(8.dp)) {
+    Card(
+        modifier = Modifier.padding(8.dp),
+        elevation = CardDefaults.cardElevation(defaultElevation = 8.dp)
+    ) {
         Row(verticalAlignment = Alignment.CenterVertically) {
             Image(
                 painter = painterResource(id = image),
@@ -64,26 +68,50 @@ data class Category(
 
 fun getItemList(): List<Category> {
     return listOf(
-        Category(R.drawable.baseline_account_circle_512, "Programming", "Learn different languages"),
+        Category(
+            R.drawable.baseline_account_circle_512,
+            "Programming",
+            "Learn different languages"
+        ),
         Category(R.drawable.baseline_account_circle_512, "Technology", "News about technology"),
-        Category(R.drawable.baseline_account_circle_512, "Full stack development", "From backend to frontend"),
+        Category(
+            R.drawable.baseline_account_circle_512,
+            "Full stack development",
+            "From backend to frontend"
+        ),
         Category(R.drawable.baseline_account_circle_512, "Dev ops", "Deploy CI/ CD etc."),
         Category(R.drawable.baseline_account_circle_512, "AI/ ML", "Basic artificial intelligence"),
-        Category(R.drawable.baseline_account_circle_512, "Programming", "Learn different languages"),
+        Category(
+            R.drawable.baseline_account_circle_512,
+            "Programming",
+            "Learn different languages"
+        ),
         Category(R.drawable.baseline_account_circle_512, "Technology", "News about technology"),
-        Category(R.drawable.baseline_account_circle_512, "Full stack development", "From backend to frontend"),
+        Category(
+            R.drawable.baseline_account_circle_512,
+            "Full stack development",
+            "From backend to frontend"
+        ),
         Category(R.drawable.baseline_account_circle_512, "Dev ops", "Deploy CI/ CD etc."),
         Category(R.drawable.baseline_account_circle_512, "AI/ ML", "Basic artificial intelligence"),
-        Category(R.drawable.baseline_account_circle_512, "Programming", "Learn different languages"),
+        Category(
+            R.drawable.baseline_account_circle_512,
+            "Programming",
+            "Learn different languages"
+        ),
         Category(R.drawable.baseline_account_circle_512, "Technology", "News about technology"),
-        Category(R.drawable.baseline_account_circle_512, "Full stack development", "From backend to frontend"),
+        Category(
+            R.drawable.baseline_account_circle_512,
+            "Full stack development",
+            "From backend to frontend"
+        ),
         Category(R.drawable.baseline_account_circle_512, "Dev ops", "Deploy CI/ CD etc."),
         Category(R.drawable.baseline_account_circle_512, "AI/ ML", "Basic artificial intelligence")
     )
 }
 
-@Preview(showBackground = true, showSystemUi = true)
+@Preview(showBackground = true)
 @Composable
 private fun RecyclerViewPreviewFunction() {
-
+    RecyclerView()
 }
